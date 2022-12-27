@@ -80,7 +80,7 @@ export class HomePage implements OnInit {
           this.characters.push(receivedCharacter); //Enrich the characters array with results from the API request
         });
 
-        //NOT-USED NEW WAY of storing all enriched results in bucket on marvelapi service for later access on details. serviceStorage will get HUGE. not recommended.
+        //NOT-USED NEW WAY of storing all enriched results in serviceStorage bucket on marvelapi.service for later access on details. Array will get HUGE. not recommended.
         //this.marvelapi.serviceStorage = this.characters;
 
         //Increment the offset by 20 to get the next 20 results from the api

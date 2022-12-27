@@ -213,7 +213,7 @@ export class MarvelapiService {
 
   //serviceStorage!: Character[]; Commented this out because we are not using this anymore.
   //This can get really huge and we only need a temporary container below to store only the clicked character object with all properties
-  latestClickedCharacter!: Character; //Henning's addition, will be populated in the home.page.ts openCharacterDetailsPage function
+  latestClickedCharacter!: Character; //HENNING: Set in home.page.ts openCharacterDetailsPage function when user clicks character in html page
 
   hash: any;
   ts = new Date().getTime();

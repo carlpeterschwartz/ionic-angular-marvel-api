@@ -29,7 +29,7 @@ export class CharacterDetailsPage implements OnInit {
     //console.log(filteredResults);
 
     this.details = this.marvelapi.latestClickedCharacter;
-    //console.log(this.details);
+    console.log(this.details);
 
     //Previous approach below of doing another api get request to fetch the character-details results for that id
     // const id = this.route.snapshot.paramMap.get('id');
