@@ -71,16 +71,16 @@ export class HomePage implements OnInit {
         loading.dismiss(); //Remove loading when results
         this.apiResult = res;
 
-        //Old way: Enrich the characters array with the pushed res.data.results
+        //OLD WAY: Enrich the characters array with the pushed res.data.results
         //this.characters.push(...res.data.results);
 
-        //New way: Henning's USB-stick method from Friday Dec 23 teams meeting
+        //NEW WAY: Henning's USB-stick method from Friday Dec 23 teams meeting
         this.apiResult.data.results.forEach(receivedCharacter => {
           //console.log(receivedCharacter);
-          this.characters.push(receivedCharacter); //Push the results to the temporary characters bucket that lives at marvelapi.service
+          this.characters.push(receivedCharacter); //Enrich the characters array with results from the API request
         });
 
-        //Not used new way of storing all enriched results in bucket on marvelapi service for later access on details. serviceStorage will get HUGE. not recommended.
+        //NOT-USED NEW WAY of storing all enriched results in bucket on marvelapi service for later access on details. serviceStorage will get HUGE. not recommended.
         //this.marvelapi.serviceStorage = this.characters;
 
         //Increment the offset by 20 to get the next 20 results from the api
@@ -110,9 +110,9 @@ export class HomePage implements OnInit {
   //Henning's new way: programmatic approach for routing or navigating instead of using routerLink
   openCharacterDetailsPage(character:Character){
     //console.log(character);
-    this.marvelapi.latestClickedCharacter = character; //We passed character when clicking on the item in home.page.html
-    console.log(this.marvelapi.latestClickedCharacter); //Test and see that the character object and properties are in console.log
-    this.router.navigate(['/character-details/' + character.name]) //Open the character-details page! Does NOT use routerLink, but the url looks ugly
+    this.marvelapi.latestClickedCharacter = character; //Pass only the clicked character object/properties to the temporary latestClickedCharacter "container" in the service
+    console.log(this.marvelapi.latestClickedCharacter); //Test and see that the character object and its properties are in console.log
+    this.router.navigate(['/character-details/' + character.name]) //Open the character-details page! Does NOT use routerLink, the url looks ugly, but no extra http request needed
   }
 
 }
