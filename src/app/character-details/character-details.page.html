@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ details.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img [src]="details.thumbnail.path + '.' + details.thumbnail.extension" />
+    <ion-card-header>
+      <ion-card-title>{{ details.name }}</ion-card-title>
+      <ion-card-subtitle>{{ details.modified }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ details.description }}
+    </ion-card-content>
+
+    <!-- <ion-button shape="round">
+      <ion-icon slot="start" name="globe-outline"></ion-icon>
+      {{ details.resourceURI }}
+    </ion-button> -->
+  </ion-card>
+
+</ion-content>
+
+

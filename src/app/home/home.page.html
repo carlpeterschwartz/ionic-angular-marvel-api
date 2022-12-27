@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>
+      Ionic Angular Marvel API
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let comic of comics"><img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" /></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <!-- <ion-item button *ngFor="let character of characters" [routerLink]="[character.id]"> -->
+    <ion-item button *ngFor="let character of characters" (click)='openCharacterDetailsPage(character)'>
+      <ion-avatar slot="start">
+        <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" />
+      </ion-avatar>
+
+      <ion-label class="ion-text-wrap">
+        <h3>{{ character.name }}</h3>
+        <p>{{ character.description }}</p>
+        <!-- <sub>Modified: {{ item.modified }}</sub> -->
+      </ion-label>
+
+      <ion-badge slot="end"> {{ character.comics.available }} </ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($any($event))">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more characters..."> </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!-- {{ apiResult.attributionText }} -->
+
+</ion-content>
+
+

@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-marvel-api",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
